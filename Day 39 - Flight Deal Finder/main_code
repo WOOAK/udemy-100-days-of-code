@@ -1,0 +1,105 @@
+import requests
+import datetime as dt
+from twilio.rest import Client
+from pprint import pprint
+account_sid = "AC77b240fca3f56d154ed8678144255a93"
+auth_token = "324e8049e647639df2ceb745684ab07d"
+client = Client(account_sid, auth_token)
+
+from_whatsapp_number='whatsapp:+14155238886'
+to_whatsapp_number='whatsapp:+601137837026'
+
+
+sheety_endpoint = "https://api.sheety.co/8b6c843d0b5584ab3894f9aee99bd4ce/flightDeals/prices"
+tequila1_endpoint = "https://tequila-api.kiwi.com/locations/query"
+tequila2_endpoint = "https://tequila-api.kiwi.com/v2/search"
+TEQ_API_KEY = "baJTICHAXYbIQ39AKEUmgilcDSDNgAmT"
+DEPARTURE_CITY = "LON"
+DEPARTURE_CITY_NAME = "London"
+CURRENCY = "GBP"
+teq_header = {
+    "apikey":TEQ_API_KEY
+}
+
+response = requests.get(url=sheety_endpoint)
+sheet_data = response.json()
+
+# pprint(sheet_data)
+
+# update_row_params = {
+#     "price":
+#         {"iataCode":"TESTING"}
+#     }
+
+# update IATA code, remarked because one time use
+# id_count = 2
+# for city in range(len(sheet_data["prices"])):
+#     # print(sheet_data)
+#     city_name = sheet_data["prices"][city]["city"]
+#
+#     IATA_params = {
+#         "term":city_name
+#         }
+#     location_dict = (requests.get(url=tequila1_endpoint,params = IATA_params,headers=teq_header).json())
+#
+#     IATA_code = location_dict["locations"][0]["code"]
+#
+#     print(IATA_code)
+#     update_row_params = {
+#         "price":
+#             {"iataCode":IATA_code}
+#         }
+#
+#     update_response = requests.put(url=f"{sheety_endpoint}/{id_count}",json=update_row_params)
+#     id_count += 1
+#     print(update_response.text)
+
+# Testing
+today=dt.datetime.now().date()
+six_months_day = dt.timedelta(days=180)
+one_day = dt.timedelta(days=1)
+start_date = today + one_day
+end_date = today + six_months_day
+print(start_date)
+print(end_date)
+
+for city in range(len(sheet_data["prices"])):
+    code = sheet_data["prices"][city]["iataCode"]
+    lowest_price = sheet_data["prices"][city]["lowestPrice"]
+    arrival_city = sheet_data["prices"][city]["city"]
+    flight_search_parms = {
+        "fly_from":DEPARTURE_CITY,
+        "fly_to":code,
+        "curr":CURRENCY,
+        "date_from":start_date.strftime("%d/%m/%Y"),
+        "date_to":end_date.strftime("%d/%m/%Y"),
+        "max_stopovers":0,
+        "nights_in_dst_from":7,
+        "nights_in_dst_to":28
+    }
+    flight_data = (requests.get(url=tequila2_endpoint,params=flight_search_parms,headers=teq_header).json())
+# # print(flight_data)
+# # price_list = []
+# # for flight in range(len(flight_data["data"])):
+    try:
+        price = flight_data["data"][0]["conversion"]["GBP"]
+        # departure_city = flight_data["data"][0]["route"][0]["cityFrom"]
+        departure_airport = flight_data["data"][0]["route"][0]["flyFrom"]
+        arrival_airport = flight_data["data"][0]["route"][0]["flyTo"]
+        go_date = flight_data["data"][0]["route"][0]["local_departure"].split("T")[0]
+        return_date = flight_data["data"][0]["route"][1]["local_departure"].split("T")[0]
+        link = flight_data["data"][0]["deep_link"]
+        if price <= lowest_price:
+            message = f"Low price alert! Only £{price} to fly from {DEPARTURE_CITY_NAME}-{departure_airport} to {arrival_city}-{arrival_airport}, from {go_date} to {return_date}. For more details, kindly visit {link}"
+            client.messages.create(body=message,
+                                   from_=from_whatsapp_number,
+                                   to=to_whatsapp_number)
+        print(f"{code}: £{price}")
+    except IndexError:
+        print(f"No flight available for {code}!")
+# #     price_list.append(price)
+# # Based on Tequila document, the sorting is default by lowest price to highest price.
+# # Hence, index 0 will always have lowest price
+# # print(price_list)
+# # lowest_price_index = price_list.index(min(price_list))
+# # print(lowest_price_index)

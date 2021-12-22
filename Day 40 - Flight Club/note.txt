@@ -1,0 +1,17 @@
+A) Check IATA code column, if blank
+1. Get city name and pass city name to tequila query function
+2. From query function, get back IATA code, and update sheet IATA code column
+B) Check cheapest flight
+1. Pass in start and end date, departure city and arrival city
+2. Get data from tequila search function
+C) Format flight data
+1. Price
+2. Departure airport
+3. Arrival airport
+4. Deep link
+5. Go date
+6. Return Date
+** departure city and arrival city is fixed
+D) Return flight data and compare price
+E) Pass in required information if have lower price to notify manager
+
