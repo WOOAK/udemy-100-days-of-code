@@ -1,0 +1,13 @@
+data type
+type error
+value error: when try to do math operation on string
+type()
+str()
+int()
+float()
+[] - subcript 
+PEMDASLR
+round() - round off
+floor division //
+f"{}" - f string
+"{:.2f}".format(Num_Variable)
