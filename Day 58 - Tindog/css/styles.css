@@ -1,0 +1,166 @@
+    body {
+    font-family:"Montserrat";
+    text-align:center;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:"Montserrat";
+    font-weight:700;
+}
+
+    h2{
+
+    font-size:3rem;
+    line-height:1.5;
+    }
+
+    h3{
+    font-size:1.5rem;
+    }
+
+    p {
+    color:#8f8f8f;
+    }
+
+.colored-section {
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #fff;
+}
+
+.big-heading{
+    font-weight:900;
+    font-size:3rem;
+    line-height:1.5;
+}
+
+.container-fluid {
+    padding: 7% 15%;
+}
+
+#title {
+    text-align:left;
+    color:white;
+    font-weight:bold;
+    }
+
+
+#title .container-fluid {
+padding: 3% 15% 7%;
+}
+
+    .navbar{
+    padding-bottom:4rem;
+    }
+
+    .navbar-brand{
+    font-family:"Ubuntu";
+    font-size:2.5rem;
+    font-weight:bold;
+    }
+
+    .nav-item{
+    padding:0 18px;
+    }
+
+    .nav-link{
+    font-size:1.2rem;
+    }
+
+    .download-button{
+    margin:5% 3% 5% 0;
+    }
+
+    .title-image{
+    width:60%;
+    transform:rotate(25deg);
+    position : absolute;
+    right:30%;
+    }
+
+@media (max-width:1028px){
+.title-image{
+position:static;
+transform:rotate(0deg);
+}
+
+#title{
+text-align:center;
+}
+}
+
+.iphone-container{
+position:relative;
+}
+    .icon{
+    color:#ef8172;
+    padding-bottom:15px;
+    }
+
+    .icon:hover{
+    color:#ff4c68;
+    }
+
+
+
+
+    #features{
+    z-index : 1;
+    position : relative;
+    padding-top:5%;
+    padding-bottom:5%
+    }
+
+    #testimonials {
+    background-color:#ef8172
+    }
+
+    .testimonial-image{
+    width:20%;
+    border-radius:100%;
+    }
+
+.carousel-item{
+padding-bottom:10%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+#press {
+  background-color: #ef8172;
+  padding-bottom: 3%;
+}
+
+#pricing {
+padding:100px;
+}
+
+.pricing-column{
+padding:3% 2%;
+}
+
+#cta{
+    color:white;
+}
+
+.footer{
+    font-family:"Montserrat";
+    font-weight:900;
+}
+
+
+.social-icon{
+margin:20px 10px;
+}
+
+
+
+
+
+

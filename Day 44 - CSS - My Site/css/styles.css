@@ -1,0 +1,168 @@
+body{
+  margin:0;
+  text-align: center;
+  font-family: 'Merriweather', Helvetica, Arial, serif;
+  color: #40514E;
+}
+
+p{
+  line-height: 2;
+}
+
+.top-container{
+  background-color: LightCyan;
+  padding-top: 100px
+}
+
+.title{
+  width: 30%;
+  margin: 0 auto 0 auto;
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
+  margin: 50px auto 0 auto;
+  color: #66BFBF;
+}
+
+.job{
+font-size: 2.5rem;
+color: #66BFBF;
+font-weight: "normal";
+}
+h2{
+  color: #66BFBF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+h3{
+  color: #11999E;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+hr {
+  border-style: dotted none none;
+  width: 6%;
+  border-width: 10px;
+  border-color: #EAF6F6;
+}
+
+.intro{
+  width:30%;
+  margin: auto;
+}
+.middle-container{
+  background-color: White;
+  margin: 100px 0;
+}
+
+.bottom-container{
+  padding: 50px 0 20px 0;
+  background-color: #66BFBF;
+}
+.top-cloud{
+  position: absolute;
+  right:350px;
+  top:50px;
+}
+.bottom-cloud{
+  position: absolute;
+  bottom:250px;
+  left:400px;
+}
+
+.propic{
+  height:200px;
+  width:200px;
+  border-radius: 50%;
+}
+
+.skill-row{
+  width:50%;
+  margin:50px auto 50px auto;
+  text-align: left;
+}
+
+/*float:wrap image around text*/
+.as400-img{
+  width:25%;
+  float:left;
+  margin-right: 30px;
+}
+
+.matlab-img{
+  width:25%;
+  float:right;
+  margin-left: 30px;
+}
+
+.footer-link{
+  color: #11999E;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 20px;
+  text-decoration: none;
+}
+
+.footer-link:hover{
+  color: #EAF6F6;
+}
+
+.contact-me{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.contact-link{
+  border-top: 50px;
+}
+
+.Green3D {
+  margin: 50px auto 0px auto;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   height: 6px;
+   line-height: 6px;
+   color: #FFFFFF;
+   font-family: 'Montserrat', sans-serif;
+   width: 143px;
+   font-size: 21px;
+   font-weight: 100;
+   padding: 20px;
+   background-color: #66BFBF;
+   -webkit-box-shadow: 0 4px 0 2px #000000;
+   -moz-box-shadow: 0 4px 0 2px #000000;
+   box-shadow: 0 4px 0 2px #000000;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+.Green3D:hover {
+   border: solid #0D772A 0;
+   background: #66BFBF;
+   background-image: -webkit-linear-gradient(top, #66BFBF, #0B5746);
+   background-image: -moz-linear-gradient(top, #66BFBF, #0B5746);
+   background-image: -ms-linear-gradient(top, #66BFBF, #0B5746);
+   background-image: -o-linear-gradient(top, #66BFBF, #0B5746);
+   background-image: -webkit-gradient(to bottom, #66BFBF, #0B5746);
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   text-decoration: none;
+}
+/* clear margin onn left and right */
+/* .as400-desc{
+  clear:left;
+}
+
+.matlab-desc{
+  clear:right;
+} */
+
+.copyright{
+  color: #EAF6F6;
+  padding-top: 10px;
+}
