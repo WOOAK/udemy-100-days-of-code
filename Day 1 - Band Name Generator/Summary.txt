@@ -1,0 +1,7 @@
+print()
+input()
+len()
+variable
+debug: Name error, indentation error, syntax error
+format :\n new line
+project Band name generator
